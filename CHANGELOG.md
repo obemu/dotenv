@@ -6,6 +6,13 @@ This project follows [pub-flavored semantic versioning][pub-semver]. ([more][pub
 [pub-semver]: https://www.dartlang.org/tools/pub/versioning.html#semantic-versions
 [pub-semver-readme]: https://pub.dartlang.org/packages/pub_semver
 
+## 4.3.0
+
+- [feat] Moved `lib/src/dotenv.dart` and `lib/src/parser.dart` into `lib/` and deleted the empty `lib/src` directory. With this change, the user can now import the `Parser` class without importing files from the `lib/src` directory, because that is considered a bad practice. [See lint implementation_imports](https://dart.dev/tools/linter-rules/implementation_imports)
+- [deps] added package `universal_io`
+- [fix] typo, renamed `Parser._singleQuot` to `Parser._singleQuote` 
+- [fix] replaced dependencies of `dart:io` in `lib/dotenv.dart` and `lib/parser.dart` with `package:universal_io/io.dart`, this should make the package compatible with flutter web and fix [#33][]
+
 ## 4.2.0
 
 - [feat] add optional parameter `quiet` to `DotEnv` constructor
@@ -102,3 +109,4 @@ Initial release.
 [#16]: https://github.com/mockturtl/dotenv/issues/16
 [#21]: https://github.com/mockturtl/dotenv/pull/21
 [#27]: https://github.com/mockturtl/dotenv/pull/27
+[#33]: https://github.com/mockturtl/dotenv/issues/33

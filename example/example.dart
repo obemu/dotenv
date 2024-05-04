@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:dotenv/dotenv.dart';
 
 void main() {
@@ -19,4 +17,4 @@ void main() {
   p('your home directory is still: ${env['HOME']}');
 }
 
-p(String msg) => stdout.writeln(msg);
+p(String msg) => print(msg);

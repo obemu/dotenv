@@ -1,5 +1,5 @@
 import 'package:collection/collection.dart' show MapEquality;
-import 'package:dotenv/src/dotenv.dart';
+import 'package:dotenv/dotenv.dart';
 import 'package:test/test.dart';
 
 void main() {

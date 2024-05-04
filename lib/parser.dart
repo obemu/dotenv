@@ -1,11 +1,10 @@
-import 'dart:io';
-
 import 'package:meta/meta.dart';
+import 'package:universal_io/io.dart';
 
 /// Creates key-value pairs from strings formatted as environment
 /// variable definitions.
 class Parser {
-  static const _singleQuot = "'";
+  static const _singleQuote = "'";
   static const _keyword = 'export';
 
   static final _comment = new RegExp(r'''#.*(?:[^'"])$''');
@@ -49,10 +48,10 @@ class Parser {
     if (k.isEmpty) return {};
 
     var rhs = stripped.substring(idx + 1, stripped.length).trim();
-    var quotChar = surroundingQuote(rhs);
+    var quoteChar = surroundingQuote(rhs);
     var v = unquote(rhs);
 
-    if (quotChar == _singleQuot) // skip substitution in single-quoted values
+    if (quoteChar == _singleQuote) // skip substitution in single-quoted values
       return {k: v};
 
     return {k: interpolate(v, env)};
